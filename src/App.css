@@ -91,14 +91,29 @@
   }
 }
 
-/* Job card styles */
+/* Job Card Styles */
 .job-card {
-  background: white;
-  border: 1px solid #e1e8ed;
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.job-link {
+    text-decoration: none;  /* This removes the underline */
+    color: inherit;
+    display: block;
+}
+
+.job-info {
+    margin-top: 1rem;
+}
+
+.job-info p {
+    margin: 0.5rem 0;
+    color: #666;
 }
 
 .job-card:hover {
