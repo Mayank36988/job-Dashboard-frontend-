@@ -3,7 +3,7 @@ import JobForm from '../components/JobForm';
 
 const AddJob = () => {
     return (
-        <div>
+        <div className="add-job-container">
             <h1>Add New Job</h1>
             <JobForm />
         </div>

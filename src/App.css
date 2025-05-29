@@ -6,6 +6,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Responsive padding for smaller screens */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+}
+
 /* Navbar styles */
 .navbar {
   background-color: #2c3e50;
@@ -13,6 +20,8 @@
   margin-bottom: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar a {
@@ -25,6 +34,15 @@
 
 .navbar a:hover {
   color: #3498db;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 /* Home page styles */
@@ -48,12 +66,29 @@
   font-size: 1.1rem;
 }
 
+@media (max-width: 768px) {
+  .home-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .home-header p {
+    font-size: 1rem;
+  }
+}
+
 /* Job list grid */
 .job-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 25px;
   padding: 20px 0;
+}
+
+@media (max-width: 640px) {
+  .job-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
 /* Job card styles */
@@ -99,6 +134,16 @@
   font-size: 0.9rem;
   display: inline-block;
   margin-top: 10px;
+}
+
+@media (max-width: 640px) {
+  .job-card {
+    padding: 15px;
+  }
+  
+  .job-card h3 {
+    font-size: 1.1rem;
+  }
 }
 
 /* Job form styles */
@@ -159,41 +204,60 @@ textarea.form-control {
   background-color: #2980b9;
 }
 
+@media (max-width: 768px) {
+  .job-form-container {
+    padding: 15px;
+    margin: 0 10px;
+  }
+}
+
 /* Search styles */
 .search-container {
-    max-width: 600px;
-    margin: 2rem auto;
-    display: flex;
-    gap: 1rem;
-    padding: 0 1rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
 .search-input {
-    flex: 1;
-    padding: 0.75rem;
-    border: 2px solid #e1e8ed;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .search-input:focus {
-    outline: none;
-    border-color: #3498db;
+  outline: none;
+  border-color: #3498db;
 }
 
 .search-select {
-    padding: 0.75rem;
-    border: 2px solid #e1e8ed;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: white;
-    cursor: pointer;
+  padding: 0.75rem;
+  border: 2px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
 }
 
 .search-select:focus {
-    outline: none;
-    border-color: #3498db;
+  outline: none;
+  border-color: #3498db;
+}
+
+@media (max-width: 640px) {
+  .search-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .search-input,
+  .search-select {
+    width: 100%;
+  }
 }
 
 /* Form validation styles */
@@ -206,4 +270,155 @@ textarea.form-control {
     font-size: 0.875rem;
     margin-top: 0.25rem;
     display: block;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Font size adjustments for mobile */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Delete button styles */
+.delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+    .delete-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Add or update these styles in App.css */
+
+.add-job-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-job-container h1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.job-form {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    max-height: 200px;
+    resize: vertical;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.submit-button:hover {
+    background: #2980b9;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .add-job-container {
+        padding: 15px;
+    }
+
+    .job-form {
+        padding: 1rem;
+    }
+
+    .add-job-container h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .submit-button {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 0.85rem;
+    }
 }

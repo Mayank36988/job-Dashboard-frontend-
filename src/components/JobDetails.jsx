@@ -10,7 +10,7 @@ const JobDetails = () => {
     useEffect(() => {
         const fetchJobDetails = async () => {
             try {
-                const response = await fetch(`/api/jobs/${id}`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/jobs/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch job details');
                 }
@@ -28,15 +28,18 @@ const JobDetails = () => {
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
+    if (!job) return <div>Job not found</div>;
 
     return (
-        <div>
+        <div className="job-details-container">
             <h2>{job.title}</h2>
-            <p><strong>Company:</strong> {job.company}</p>
-            <p><strong>Location:</strong> {job.location}</p>
-            <p><strong>Type:</strong> {job.type}</p>
-            <p><strong>Description:</strong> {job.description}</p>
-            <p><strong>Posted on:</strong> {new Date(job.createdAt).toLocaleDateString()}</p>
+            <div className="job-details-info">
+                <p><strong>Company:</strong> {job.company}</p>
+                <p><strong>Location:</strong> {job.location}</p>
+                <p><strong>Type:</strong> {job.type}</p>
+                <p><strong>Description:</strong> {job.description}</p>
+                <p><strong>Posted on:</strong> {new Date(job.createdAt).toLocaleDateString()}</p>
+            </div>
         </div>
     );
 };
