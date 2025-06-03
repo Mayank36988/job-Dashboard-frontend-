@@ -313,7 +313,7 @@ textarea.form-control {
 }
 
 /* Delete button styles */
-.delete-button {
+/*.delete-button {
     background-color: #e74c3c;
     color: white;
     border: none;
@@ -327,7 +327,7 @@ textarea.form-control {
 
 .delete-button:hover {
     background-color: #c0392b;
-}
+}*/
 
 /* Mobile responsive */
 @media (max-width: 640px) {
@@ -405,6 +405,30 @@ textarea.form-control {
 
 .submit-button:hover {
     background: #2980b9;
+}
+
+/* Apply button styles */
+.apply-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.apply-button:active {
+    transform: translateY(0);
 }
 
 /* Responsive styles */

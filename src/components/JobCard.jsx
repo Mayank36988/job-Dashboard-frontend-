@@ -1,31 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const JobCard = ({ job, onDelete }) => {
-    const handleDelete = async (e) => {
+const JobCard = ({ job }) => {
+    const navigate = useNavigate();
+
+    const handleApply = async (e) => {
         e.preventDefault();
-        
-        if (window.confirm('Are you sure you want to delete this job?')) {
-            try {
-                const response = await fetch(`${process.env.REACT_APP_API_URL}/jobs/${job._id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                toast.success('Job deleted successfully');
-                onDelete(job._id);
-            } catch (error) {
-                console.error('Error deleting job:', error);
-                toast.error(`Failed to delete job: ${error.message}`);
-            }
+        try {
+            // You can either navigate to an application form
+            navigate(`/job/${job._id}/apply`);
+            
+            // Or show a success message
+            toast.success('Application submitted successfully!');
+        } catch (error) {
+            console.error('Error applying for job:', error);
+            toast.error('Failed to apply for job');
         }
     };
 
@@ -40,11 +30,11 @@ const JobCard = ({ job, onDelete }) => {
                 </div>
             </Link>
             <button 
-                className="delete-button"
-                onClick={handleDelete}
-                aria-label="Delete job"
+                className="apply-button"
+                onClick={handleApply}
+                aria-label="Apply for job"
             >
-                Delete Job
+                Apply Now
             </button>
         </div>
     );

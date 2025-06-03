@@ -36,12 +36,17 @@ const JobForm = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(jobData),
+                body: JSON.stringify(jobData)
             });
 
+            // Log for debugging
+            console.log('Response:', response);
+
             if (!response.ok) {
-                throw new Error('Failed to add job');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to add job');
             }
 
             const data = await response.json();
@@ -49,7 +54,7 @@ const JobForm = () => {
             navigate('/');
         } catch (error) {
             console.error('Error adding job:', error);
-            toast.error('Failed to add job');
+            toast.error(error.message || 'Failed to add job');
         }
     };
 
